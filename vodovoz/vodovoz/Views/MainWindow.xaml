@@ -1,0 +1,107 @@
+﻿<Window x:Class="vodovoz.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:vodovoz.Views"
+        xmlns:converters="clr-namespace:vodovoz.Converters"
+        xmlns:viewModels="clr-namespace:vodovoz.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <converters:DepartmentConverter x:Key="DepartmentConverter"/>
+        <converters:WorkerConverter x:Key="WorkerConverter"/>
+        <viewModels:MainViewModel x:Key="viewModel"/>
+        <Style TargetType="{x:Type DataGrid}">
+            <Setter Property="CanUserAddRows" Value="False" />
+            <Setter Property="CanUserDeleteRows" Value="False" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="AutoGenerateColumns" Value="False" />
+        </Style>
+    </Window.Resources>
+    <Grid DataContext="{DynamicResource viewModel}">
+        <TabControl>
+            <TabItem Header="Сотрудники">
+                <StackPanel Orientation="Vertical">
+                    <Button Margin="5" Height="20" Width="100" Content="Добавить" 
+                            HorizontalAlignment="Left"
+                            Command="{Binding NewWorkerCommand}" />
+                    <DataGrid x:Name="workersGrid"
+                        ItemsSource="{Binding Workers}">
+                        <DataGrid.InputBindings>
+                            <MouseBinding MouseAction="LeftDoubleClick"
+                                Command="{Binding OpenWorkerCommand}"
+                                CommandParameter="{Binding ElementName=workersGrid, Path=SelectedItem}"/>
+                        </DataGrid.InputBindings>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Surname}"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Patronymic}"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Birthday}"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Sex}"></DataGridTextColumn>
+                            <DataGridTextColumn>
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding Converter="{StaticResource DepartmentConverter}">
+                                        <Binding Path="Department" />
+                                        <Binding ElementName="departmentsGrid" Path="ItemsSource" />
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Подразделения">
+                <StackPanel Orientation="Vertical">
+                    <Button Margin="5" Height="20" Width="100" Content="Добавить" 
+                            HorizontalAlignment="Left"
+                            Command="{Binding NewDepartmentCommand}" />
+                    <DataGrid x:Name="departmentsGrid" ItemsSource="{Binding Departments}">
+                        <DataGrid.InputBindings>
+                            <MouseBinding MouseAction="LeftDoubleClick"
+                                Command="{Binding OpenDepartmentCommand}"
+                                CommandParameter="{Binding ElementName=departmentsGrid, Path=SelectedItem}"/>
+                        </DataGrid.InputBindings>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn>
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding Converter="{StaticResource WorkerConverter}">
+                                        <Binding Path="Supervisor" />
+                                        <Binding ElementName="workersGrid" Path="ItemsSource" />
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Заказы">
+                <StackPanel Orientation="Vertical">
+                    <Button Margin="5" Height="20" Width="100" Content="Добавить" 
+                            HorizontalAlignment="Left"
+                            Command="{Binding NewOrderCommand}" />
+                    <DataGrid x:Name="ordersGrid" ItemsSource="{Binding Orders}">
+                        <DataGrid.InputBindings>
+                            <MouseBinding MouseAction="LeftDoubleClick"
+                                Command="{Binding OpenOrderCommand}"
+                                CommandParameter="{Binding ElementName=ordersGrid, Path=SelectedItem}"/>
+                        </DataGrid.InputBindings>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Number}"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn>
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding Converter="{StaticResource WorkerConverter}">
+                                        <Binding Path="Worker" />
+                                        <Binding ElementName="workersGrid" Path="ItemsSource" />
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

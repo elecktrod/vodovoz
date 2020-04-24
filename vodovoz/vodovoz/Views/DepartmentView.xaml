@@ -1,0 +1,43 @@
+﻿<Window x:Class="vodovoz.Views.DepartmentView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:vodovoz.Views"
+        mc:Ignorable="d"
+        Title="DepartmentView" Height="150" Width="400">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="4" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Название"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Department.Name}"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Руководитель"/>
+        <ListView Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Supervisors}" SelectedIndex="{Binding SelectedSupervisor}">
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Row="2" Grid.Column="0" Content="Ок" Command="{Binding OkCommand}"/>
+        <Button Grid.Row="2" Grid.Column="1" Content="Отмена" Command="{Binding CancelCommand}"/>
+    </Grid>
+</Window>

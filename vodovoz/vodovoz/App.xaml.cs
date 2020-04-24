@@ -13,5 +13,10 @@ namespace vodovoz
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            this.StartupUri = new System.Uri(@"Views\MainWindow.xaml", System.UriKind.Relative);
+        }
+
     }
 }

@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace vodovoz
+namespace vodovoz.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DepartmentView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DepartmentView : Window
     {
-        public MainWindow()
+        public DepartmentView()
         {
             InitializeComponent();
         }

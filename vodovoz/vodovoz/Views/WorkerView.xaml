@@ -1,0 +1,64 @@
+﻿<Window x:Class="vodovoz.Views.WorkerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:vodovoz.Views"
+        xmlns:enum="clr-namespace:vodovoz.Models"
+        xmlns:viewModels="clr-namespace:vodovoz.ViewModels"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="WorkerView" Width="400" Height="280">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="EnumSex" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enum:Sex" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="4" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Фамилия"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Worker.Surname}"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Имя"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Worker.Name}"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Отчество"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Worker.Patronymic}"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Дата рождения"/>
+        <DatePicker Grid.Row="3" Grid.Column="1" SelectedDate="{Binding Worker.Birthday}"/>
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Пол"/>
+        <ComboBox Grid.Row="4" Grid.Column="1"
+                  ItemsSource="{Binding Source={StaticResource EnumSex}}"
+                  SelectedItem="{Binding Worker.Sex}"/>
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Подразделение"/>
+        <ListView Grid.Row="5" Grid.Column="1" ItemsSource="{Binding Departments}" SelectedIndex="{Binding SelectedDepartments}">
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Row="6" Grid.Column="0" Content="Ок" Command="{Binding OkCommand}"/>
+        <Button Grid.Row="6" Grid.Column="1" Content="Отмена" Command="{Binding CancelCommand}"/>
+    </Grid>
+</Window>
