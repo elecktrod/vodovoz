@@ -21,5 +21,13 @@ namespace vodovoz.Models
         {
             return new Order { Id = this.Id, Number = this.Number, Name = this.Name, Worker = this.Worker };
         }
+
+        public Order CloneWithoutId(Order order)
+        {
+            order.Number = this.Number;
+            order.Name = this.Name;
+            order.Worker = this.Worker;
+            return order;
+        }
     }
 }

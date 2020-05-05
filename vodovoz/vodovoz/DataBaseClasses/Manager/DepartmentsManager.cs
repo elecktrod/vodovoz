@@ -34,8 +34,7 @@ namespace vodovoz.DataBaseClasses.Manager
                 {
                     var result = db.Departments.SingleOrDefault(d => d.Id == department.Id);
 
-                    result.Name = department.Name;
-                    result.Supervisor = department.Supervisor;
+                    result = department.CloneWithoutId(result);
 
                     db.SaveChanges();
                 }

@@ -20,5 +20,12 @@ namespace vodovoz.Models
         {
             return new Department { Id = this.Id, Name = this.Name, Supervisor = this.Supervisor };
         }
+
+        public Department CloneWithoutId(Department department)
+        {
+            department.Name = this.Name;
+            department.Supervisor = this.Supervisor;
+            return department;
+        }
     }
 }

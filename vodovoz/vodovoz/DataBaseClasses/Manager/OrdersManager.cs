@@ -34,9 +34,7 @@ namespace vodovoz.DataBaseClasses.Manager
                 {
                     var result = db.Orders.SingleOrDefault(o => o.Id == order.Id);
 
-                    result.Name = order.Name;
-                    result.Number = order.Number;
-                    result.Worker = order.Worker;
+                    result = order.CloneWithoutId(result);
 
                     db.SaveChanges();
                 }

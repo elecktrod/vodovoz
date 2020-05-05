@@ -29,5 +29,16 @@ namespace vodovoz.Models
             return new Worker { Id = this.Id, Surname = this.Surname, Name = this.Name, 
                 Patronymic = this.Patronymic, Birthday = this.Birthday, Sex = this.Sex, Department = this.Department };
         }
+
+        public Worker CloneWithoutId(Worker worker)
+        {
+            worker.Surname = this.Surname;
+            worker.Name = this.Name;
+            worker.Patronymic = this.Patronymic;
+            worker.Birthday = this.Birthday;
+            worker.Sex = this.Sex;
+            worker.Department = this.Department;
+            return worker;
+        }
     }
 }

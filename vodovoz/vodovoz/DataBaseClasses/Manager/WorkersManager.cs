@@ -36,12 +36,7 @@ namespace vodovoz.DataBaseClasses.Manager
                 {
                     var result = db.Workers.SingleOrDefault(w => w.Id == worker.Id);
 
-                    result.Name = worker.Name;
-                    result.Surname = worker.Surname;
-                    result.Patronymic = worker.Patronymic;
-                    result.Sex = worker.Sex;
-                    result.Birthday = worker.Birthday;
-                    result.Department = worker.Department;
+                    result = worker.CloneWithoutId(result);
 
                     db.SaveChanges();
                 }
