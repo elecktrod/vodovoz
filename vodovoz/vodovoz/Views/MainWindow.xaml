@@ -34,12 +34,12 @@
                                 CommandParameter="{Binding ElementName=workersGrid, Path=SelectedItem}"/>
                         </DataGrid.InputBindings>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Surname}"></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Name}"></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Patronymic}"></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Birthday}"></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Sex}"></DataGridTextColumn>
-                            <DataGridTextColumn>
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Имя " Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthday}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Пол " Binding="{Binding Sex}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Подразделение">
                                 <DataGridTextColumn.Binding>
                                     <MultiBinding Converter="{StaticResource DepartmentConverter}">
                                         <Binding Path="Department" />
@@ -63,8 +63,8 @@
                                 CommandParameter="{Binding ElementName=departmentsGrid, Path=SelectedItem}"/>
                         </DataGrid.InputBindings>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Name}"></DataGridTextColumn>
-                            <DataGridTextColumn>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Руководитель">
                                 <DataGridTextColumn.Binding>
                                     <MultiBinding Converter="{StaticResource WorkerConverter}">
                                         <Binding Path="Supervisor" />
@@ -88,9 +88,9 @@
                                 CommandParameter="{Binding ElementName=ordersGrid, Path=SelectedItem}"/>
                         </DataGrid.InputBindings>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Number}"></DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Name}"></DataGridTextColumn>
-                            <DataGridTextColumn>
+                            <DataGridTextColumn Header="Номер" Binding="{Binding Number}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Название товара" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Сотрудник">
                                 <DataGridTextColumn.Binding>
                                     <MultiBinding Converter="{StaticResource WorkerConverter}">
                                         <Binding Path="Worker" />
