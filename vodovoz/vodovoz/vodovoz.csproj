@@ -76,6 +76,7 @@
     </ApplicationDefinition>
     <Compile Include="Converters\DepartmentConverter.cs" />
     <Compile Include="Converters\WorkerConverter.cs" />
+    <Compile Include="Models\MainModel.cs" />
     <Compile Include="ViewModels\DepartmentViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
     <Compile Include="Views\DepartmentView.xaml.cs">

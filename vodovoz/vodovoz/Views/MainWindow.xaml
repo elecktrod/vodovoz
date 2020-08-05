@@ -27,7 +27,7 @@
                             HorizontalAlignment="Left"
                             Command="{Binding NewWorkerCommand}" />
                     <DataGrid x:Name="workersGrid"
-                        ItemsSource="{Binding Workers}">
+                        ItemsSource="{Binding MainModel.Workers}">
                         <DataGrid.InputBindings>
                             <MouseBinding MouseAction="LeftDoubleClick"
                                 Command="{Binding OpenWorkerCommand}"
@@ -56,7 +56,7 @@
                     <Button Margin="5" Height="20" Width="100" Content="Добавить" 
                             HorizontalAlignment="Left"
                             Command="{Binding NewDepartmentCommand}" />
-                    <DataGrid x:Name="departmentsGrid" ItemsSource="{Binding Departments}">
+                    <DataGrid x:Name="departmentsGrid" ItemsSource="{Binding MainModel.Departments}">
                         <DataGrid.InputBindings>
                             <MouseBinding MouseAction="LeftDoubleClick"
                                 Command="{Binding OpenDepartmentCommand}"
@@ -81,7 +81,7 @@
                     <Button Margin="5" Height="20" Width="100" Content="Добавить" 
                             HorizontalAlignment="Left"
                             Command="{Binding NewOrderCommand}" />
-                    <DataGrid x:Name="ordersGrid" ItemsSource="{Binding Orders}">
+                    <DataGrid x:Name="ordersGrid" ItemsSource="{Binding MainModel.Orders}">
                         <DataGrid.InputBindings>
                             <MouseBinding MouseAction="LeftDoubleClick"
                                 Command="{Binding OpenOrderCommand}"
