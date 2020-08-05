@@ -52,7 +52,7 @@ namespace vodovoz.ViewModels
             }
             else
             {
-                Worker = (Worker)worker.Clone();
+                Worker = worker.Clone();
                 SelectedDepartments = Departments.IndexOf(Departments.Where(x=>x.Id == worker.Department).FirstOrDefault());
             }
         }

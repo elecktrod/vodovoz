@@ -2,7 +2,7 @@
 
 namespace vodovoz.Models
 {
-    public class Department : ICloneable
+    public class Department
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -16,7 +16,7 @@ namespace vodovoz.Models
             Supervisor = supervisor;
         }
 
-        public object Clone()
+        public Department Clone()
         {
             return new Department { Id = this.Id, Name = this.Name, Supervisor = this.Supervisor };
         }

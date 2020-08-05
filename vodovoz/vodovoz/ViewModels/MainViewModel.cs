@@ -61,7 +61,7 @@ namespace vodovoz.ViewModels
         private void UpdateOrder(Order order)
         {
             int index = Orders.IndexOf(Orders.FirstOrDefault(d => d.Id == order.Id));
-            Orders[index] = (Order)order.Clone();
+            Orders[index] = order.Clone();
         }
 
         private void DoNewDepartmentView(object obj)
@@ -88,7 +88,7 @@ namespace vodovoz.ViewModels
         private void UpdateDepartment(Department department)
         {
             int index = Departments.IndexOf(Departments.FirstOrDefault(d => d.Id == department.Id));
-            Departments[index] = (Department)department.Clone();
+            Departments[index] = department.Clone();
             UpdateWorkers();
         }
 
@@ -116,7 +116,7 @@ namespace vodovoz.ViewModels
         private void UpdateWorker(Worker worker)
         {
             int index = Workers.IndexOf(Workers.FirstOrDefault(w => w.Id == worker.Id));
-            Workers[index] = (Worker)worker.Clone();
+            Workers[index] = worker.Clone();
             UpdateDepartments();
             UpdateOrders();
         }

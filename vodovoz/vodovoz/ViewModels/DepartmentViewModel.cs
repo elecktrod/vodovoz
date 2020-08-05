@@ -54,7 +54,7 @@ namespace vodovoz.ViewModels
             }
             else
             {
-                Department = (Department)department.Clone();
+                Department = department.Clone();
                 SelectedSupervisor = Supervisors.IndexOf(Supervisors.Where(s => s.Id == department.Supervisor).FirstOrDefault());
             }
         }

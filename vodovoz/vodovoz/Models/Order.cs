@@ -2,7 +2,7 @@
 
 namespace vodovoz.Models
 {
-    public class Order : ICloneable
+    public class Order
     {
         public int Id { get; set; }
         public int Number { get; set; }
@@ -17,7 +17,7 @@ namespace vodovoz.Models
             Worker = worker;
         }
 
-        public object Clone()
+        public Order Clone()
         {
             return new Order { Id = this.Id, Number = this.Number, Name = this.Name, Worker = this.Worker };
         }
