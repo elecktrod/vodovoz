@@ -11,7 +11,7 @@ namespace vodovoz.DataBaseClasses.Manager
 {
     public class WorkersManager
     {
-        public void AddWorker(Worker worker)
+        public void AddWorker(WorkerModel worker)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace vodovoz.DataBaseClasses.Manager
             }
         }
 
-        public void UpdateWorker(Worker worker)
+        public void UpdateWorker(WorkerModel worker)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace vodovoz.DataBaseClasses.Manager
             }
         }
 
-        public Worker GetWorker(int id)
+        public WorkerModel GetWorker(int id)
         {
             try
             {
@@ -64,13 +64,13 @@ namespace vodovoz.DataBaseClasses.Manager
             }
         }
 
-        public ObservableCollection<Worker> GetWorkers()
+        public ObservableCollection<WorkerModel> GetWorkers()
         {
             try
             {
                 using (ApplicationContext db = new ApplicationContext())
                 {
-                    return new ObservableCollection<Worker>(db.Set<Worker>());
+                    return new ObservableCollection<WorkerModel>(db.Set<WorkerModel>());
                 }
             }
             catch (Exception e)

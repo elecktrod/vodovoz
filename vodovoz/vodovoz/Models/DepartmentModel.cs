@@ -1,27 +1,29 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace vodovoz.Models
 {
-    public class Department
+    [Table("Departments")]
+    public class DepartmentModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public int Supervisor { get; set; }
 
-        public Department() { }
+        public DepartmentModel() { }
 
-        public Department(string name, int supervisor)
+        public DepartmentModel(string name, int supervisor)
         {
             Name = name;
             Supervisor = supervisor;
         }
 
-        public Department Clone()
+        public DepartmentModel Clone()
         {
-            return new Department { Id = this.Id, Name = this.Name, Supervisor = this.Supervisor };
+            return new DepartmentModel { Id = this.Id, Name = this.Name, Supervisor = this.Supervisor };
         }
 
-        public Department CloneWithoutId(Department department)
+        public DepartmentModel CloneWithoutId(DepartmentModel department)
         {
             department.Name = this.Name;
             department.Supervisor = this.Supervisor;

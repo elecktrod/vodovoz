@@ -122,10 +122,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\Enums.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Worker.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\WorkerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

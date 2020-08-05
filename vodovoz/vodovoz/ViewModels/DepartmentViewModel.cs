@@ -11,8 +11,8 @@ namespace vodovoz.ViewModels
 {
     public class DepartmentViewModel : BaseViewModel
     {
-        private Department _department;
-        public Department Department
+        private DepartmentModel _department;
+        public DepartmentModel Department
         {
             get { return _department; }
             set
@@ -25,17 +25,17 @@ namespace vodovoz.ViewModels
             }
         }
 
-        public ObservableCollection<Worker> Supervisors { get; set; }
+        public ObservableCollection<WorkerModel> Supervisors { get; set; }
         public int SelectedSupervisor { get; set; }
 
         public RelayCommand OkCommand { get; private set; }
         public RelayCommand CancelCommand { get; private set; }
 
-        public delegate void UpdateDepartment(Department department);
+        public delegate void UpdateDepartment(DepartmentModel department);
         public event UpdateDepartment AddDepartmentEvent;
         public event UpdateDepartment UpdateDepartmentEvent;
 
-        public DepartmentViewModel(Department department)
+        public DepartmentViewModel(DepartmentModel department)
         {
             OkCommand = new RelayCommand(DoOk);
             CancelCommand = new RelayCommand(DoCancel);
@@ -45,7 +45,7 @@ namespace vodovoz.ViewModels
 
             if (department == null)
             {
-                Department = new Department();
+                Department = new DepartmentModel();
             }
             else
             {

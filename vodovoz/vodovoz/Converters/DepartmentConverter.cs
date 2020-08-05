@@ -15,7 +15,7 @@ namespace vodovoz.Converters
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             int id = (int)values[0];
-            ObservableCollection<Department> departments = values[1] as ObservableCollection<Department>;
+            ObservableCollection<DepartmentModel> departments = values[1] as ObservableCollection<DepartmentModel>;
             var department = departments.Where(d=>d.Id==id).FirstOrDefault();
             if (department == null)
             {

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace vodovoz.Models
 {
-    public class Worker
+    [Table("Workers")]
+    public class WorkerModel
     {
         public int Id { get; set; }
         public string Surname { get; set; }
@@ -12,9 +14,9 @@ namespace vodovoz.Models
         public Sex Sex { get; set; }
         public int Department { get; set; }
 
-        public Worker() { }
+        public WorkerModel() { }
 
-        public Worker(string surname, string name, string patronymic, DateTime birthday, Sex sex, int department)
+        public WorkerModel(string surname, string name, string patronymic, DateTime birthday, Sex sex, int department)
         {
             Surname = surname;
             Name = name;
@@ -24,13 +26,13 @@ namespace vodovoz.Models
             Department = department;
         }
 
-        public Worker Clone()
+        public WorkerModel Clone()
         {
-            return new Worker { Id = this.Id, Surname = this.Surname, Name = this.Name, 
+            return new WorkerModel { Id = this.Id, Surname = this.Surname, Name = this.Name, 
                 Patronymic = this.Patronymic, Birthday = this.Birthday, Sex = this.Sex, Department = this.Department };
         }
 
-        public Worker CloneWithoutId(Worker worker)
+        public WorkerModel CloneWithoutId(WorkerModel worker)
         {
             worker.Surname = this.Surname;
             worker.Name = this.Name;

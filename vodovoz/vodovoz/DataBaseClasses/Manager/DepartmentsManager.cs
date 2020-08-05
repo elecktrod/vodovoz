@@ -8,7 +8,7 @@ namespace vodovoz.DataBaseClasses.Manager
 {
     public class DepartmentsManager
     {
-        public int AddDepartment(Department department)
+        public int AddDepartment(DepartmentModel department)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace vodovoz.DataBaseClasses.Manager
             }
         }
 
-        public void UpdateDepartment(Department department)
+        public void UpdateDepartment(DepartmentModel department)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace vodovoz.DataBaseClasses.Manager
             }
         }
 
-        public Department GetDepartment(int id)
+        public DepartmentModel GetDepartment(int id)
         {
             try
             {
@@ -62,13 +62,13 @@ namespace vodovoz.DataBaseClasses.Manager
             }
         }
 
-        public ObservableCollection<Department> GetDepartments()
+        public ObservableCollection<DepartmentModel> GetDepartments()
         {
             try
             {
                 using (ApplicationContext db = new ApplicationContext())
                 {
-                    return new ObservableCollection<Department>(db.Set<Department>());
+                    return new ObservableCollection<DepartmentModel>(db.Set<DepartmentModel>());
                 }
             }
             catch (Exception e)

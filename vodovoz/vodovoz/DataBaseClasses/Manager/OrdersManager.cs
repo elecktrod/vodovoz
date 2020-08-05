@@ -8,7 +8,7 @@ namespace vodovoz.DataBaseClasses.Manager
 {
     public class OrdersManager
     {
-        public int AddOrder(Order order)
+        public int AddOrder(OrderModel order)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace vodovoz.DataBaseClasses.Manager
             }
         }
 
-        public void UpdateOrder(Order order)
+        public void UpdateOrder(OrderModel order)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace vodovoz.DataBaseClasses.Manager
             }
         }
 
-        public Order GetOrder(int id)
+        public OrderModel GetOrder(int id)
         {
             try
             {
@@ -62,13 +62,13 @@ namespace vodovoz.DataBaseClasses.Manager
             }
         }
 
-        public ObservableCollection<Order> GetOrders()
+        public ObservableCollection<OrderModel> GetOrders()
         {
             try
             {
                 using (ApplicationContext db = new ApplicationContext())
                 {
-                    return new ObservableCollection<Order>(db.Set<Order>());
+                    return new ObservableCollection<OrderModel>(db.Set<OrderModel>());
                 }
             }
             catch (Exception e)

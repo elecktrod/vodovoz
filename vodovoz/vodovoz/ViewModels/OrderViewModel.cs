@@ -10,8 +10,8 @@ namespace vodovoz.ViewModels
 {
     public class OrderViewModel : BaseViewModel
     {
-        private Order _order;
-        public Order Order
+        private OrderModel _order;
+        public OrderModel Order
         {
             get { return _order; }
             set
@@ -23,17 +23,17 @@ namespace vodovoz.ViewModels
                 }
             }
         }
-        public ObservableCollection<Worker> Workers { get; set; }
+        public ObservableCollection<WorkerModel> Workers { get; set; }
         public int SelectedWorker { get; set; }
 
         public RelayCommand OkCommand { get; private set; }
         public RelayCommand CancelCommand { get; private set; }
 
-        public delegate void UpdateOrder(Order order);
+        public delegate void UpdateOrder(OrderModel order);
         public event UpdateOrder AddOrderEvent;
         public event UpdateOrder UpdateOrderEvent;
 
-        public OrderViewModel(Order order)
+        public OrderViewModel(OrderModel order)
         {
             OkCommand = new RelayCommand(DoOk);
             CancelCommand = new RelayCommand(DoCancel);
@@ -43,7 +43,7 @@ namespace vodovoz.ViewModels
 
             if (order == null)
             {
-                Order = new Order();
+                Order = new OrderModel();
             }
             else
             {

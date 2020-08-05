@@ -45,7 +45,7 @@ namespace vodovoz.ViewModels
         {
             if (obj == null)
                 return;
-            OrderViewModel ovm = new OrderViewModel((Order)obj);
+            OrderViewModel ovm = new OrderViewModel((OrderModel)obj);
             ovm.UpdateOrderEvent += MainModel.UpdateOrder;
             OrderView oView = new OrderView{ DataContext = ovm };
             oView.ShowDialog();
@@ -63,7 +63,7 @@ namespace vodovoz.ViewModels
         {
             if (obj == null)
                 return;
-            DepartmentViewModel dvm = new DepartmentViewModel((Department)obj);
+            DepartmentViewModel dvm = new DepartmentViewModel((DepartmentModel)obj);
             dvm.UpdateDepartmentEvent += MainModel.UpdateDepartment;
             DepartmentView dView = new DepartmentView { DataContext = dvm };
             dView.ShowDialog();
@@ -81,7 +81,7 @@ namespace vodovoz.ViewModels
         {
             if (obj == null)
                 return;
-            WorkerViewModel wvm = new WorkerViewModel((Worker)obj);
+            WorkerViewModel wvm = new WorkerViewModel((WorkerModel)obj);
             wvm.UpdateWorkerEvent += MainModel.UpdateWorker;
             WorkerView wView = new WorkerView { DataContext = wvm };
             wView.ShowDialog();

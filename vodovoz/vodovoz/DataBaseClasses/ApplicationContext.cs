@@ -9,13 +9,13 @@ namespace vodovoz.DataBaseClasses
 
         public ApplicationContext(): base(DBConnection) { }
 
-        public DbSet<Worker> Workers { get; set; }
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<WorkerModel> Workers { get; set; }
+        public DbSet<DepartmentModel> Departments { get; set; }
+        public DbSet<OrderModel> Orders { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Worker>().
+            modelBuilder.Entity<WorkerModel>().
                 Property(p => p.Birthday)
                 .HasColumnType("datetime2")
                 .HasPrecision(0)

@@ -1,28 +1,30 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace vodovoz.Models
 {
-    public class Order
+    [Table("Orders")]
+    public class OrderModel
     {
         public int Id { get; set; }
         public int Number { get; set; }
         public string Name { get; set; }
         public int Worker { get; set; }
 
-        public Order() { }
+        public OrderModel() { }
 
-        public Order(int number, string name, int worker) {
+        public OrderModel(int number, string name, int worker) {
             Number = number;
             Name = name;
             Worker = worker;
         }
 
-        public Order Clone()
+        public OrderModel Clone()
         {
-            return new Order { Id = this.Id, Number = this.Number, Name = this.Name, Worker = this.Worker };
+            return new OrderModel { Id = this.Id, Number = this.Number, Name = this.Name, Worker = this.Worker };
         }
 
-        public Order CloneWithoutId(Order order)
+        public OrderModel CloneWithoutId(OrderModel order)
         {
             order.Number = this.Number;
             order.Name = this.Name;

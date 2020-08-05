@@ -10,9 +10,9 @@ namespace vodovoz.Models
 {
     public class MainModel
     {
-        public ObservableCollection<Worker> Workers { get; set; }
-        public ObservableCollection<Department> Departments { get; set; }
-        public ObservableCollection<Order> Orders { get; set; }
+        public ObservableCollection<WorkerModel> Workers { get; set; }
+        public ObservableCollection<DepartmentModel> Departments { get; set; }
+        public ObservableCollection<OrderModel> Orders { get; set; }
 
         public MainModel()
         {
@@ -21,24 +21,24 @@ namespace vodovoz.Models
             UpdateOrders();
         }
 
-        public void AddDepartment(Department department)
+        public void AddDepartment(DepartmentModel department)
         {
             Departments.Add(department);
         }
 
-        public void UpdateDepartment(Department department)
+        public void UpdateDepartment(DepartmentModel department)
         {
             int index = Departments.IndexOf(Departments.FirstOrDefault(d => d.Id == department.Id));
             Departments[index] = department.Clone();
             UpdateWorkers();
         }
 
-        public void AddWorker(Worker worker)
+        public void AddWorker(WorkerModel worker)
         {
             Workers.Add(worker);
         }
 
-        public void UpdateWorker(Worker worker)
+        public void UpdateWorker(WorkerModel worker)
         {
             int index = Workers.IndexOf(Workers.FirstOrDefault(w => w.Id == worker.Id));
             Workers[index] = worker.Clone();
@@ -46,12 +46,12 @@ namespace vodovoz.Models
             UpdateOrders();
         }
 
-        public void AddOrder(Order order)
+        public void AddOrder(OrderModel order)
         {
             Orders.Add(order);
         }
 
-        public void UpdateOrder(Order order)
+        public void UpdateOrder(OrderModel order)
         {
             int index = Orders.IndexOf(Orders.FirstOrDefault(d => d.Id == order.Id));
             Orders[index] = order.Clone();

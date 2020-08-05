@@ -10,8 +10,8 @@ namespace vodovoz.ViewModels
 {
     public class WorkerViewModel : BaseViewModel
     {
-        private Worker _worker;
-        public Worker Worker
+        private WorkerModel _worker;
+        public WorkerModel Worker
         {
             get{ return _worker; }
             set { 
@@ -23,17 +23,17 @@ namespace vodovoz.ViewModels
             }
         }
 
-        public ObservableCollection<Department> Departments { get; set; }
+        public ObservableCollection<DepartmentModel> Departments { get; set; }
         public int SelectedDepartments { get; set; }
 
         public RelayCommand OkCommand { get; private set; }
         public RelayCommand CancelCommand { get; private set; }
 
-        public delegate void UpdateWorker(Worker worker);
+        public delegate void UpdateWorker(WorkerModel worker);
         public event UpdateWorker AddWorkerEvent;
         public event UpdateWorker UpdateWorkerEvent;
 
-        public WorkerViewModel(Worker worker)
+        public WorkerViewModel(WorkerModel worker)
         {
             OkCommand = new RelayCommand(DoOk);
             CancelCommand = new RelayCommand(DoCancel);
@@ -43,7 +43,7 @@ namespace vodovoz.ViewModels
 
             if (worker == null)
             {
-                Worker = new Worker();
+                Worker = new WorkerModel();
             }
             else
             {

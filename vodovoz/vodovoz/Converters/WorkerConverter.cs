@@ -12,7 +12,7 @@ namespace vodovoz.Converters
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
         int id = (int)values[0];
-        ObservableCollection<Worker> workers = values[1] as ObservableCollection<Worker>;
+        ObservableCollection<WorkerModel> workers = values[1] as ObservableCollection<WorkerModel>;
         var worker = workers.Where(d => d.Id == id).FirstOrDefault();
         if (worker == null)
         {
