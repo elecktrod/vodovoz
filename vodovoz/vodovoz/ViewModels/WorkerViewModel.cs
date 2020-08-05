@@ -10,8 +10,6 @@ namespace vodovoz.ViewModels
 {
     public class WorkerViewModel : BaseViewModel
     {
-        private WorkerView _view;
-
         private Worker _worker;
         public Worker Worker
         {
@@ -37,9 +35,6 @@ namespace vodovoz.ViewModels
 
         public WorkerViewModel(Worker worker)
         {
-            _view = new WorkerView();
-            _view.DataContext = this;
-
             OkCommand = new RelayCommand(DoOk);
             CancelCommand = new RelayCommand(DoCancel);
 
@@ -80,12 +75,7 @@ namespace vodovoz.ViewModels
 
         private void DoCancel(object obj)
         {
-            _view.Close();
-        }
-
-        public void ShowView()
-        {
-            _view.ShowDialog();
+            (obj as Window).Close();
         }
     }
 }

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vodovoz.Views"
         mc:Ignorable="d"
+        x:Name="View"
         Title="OrderView" Height="200" Width="400">
     <Window.Resources>
         <Style TargetType="{x:Type TextBlock}">
@@ -40,6 +41,6 @@
             </ListView.View>
         </ListView>
         <Button Grid.Row="3" Grid.Column="0" Content="Ок" Command="{Binding OkCommand}"/>
-        <Button Grid.Row="3" Grid.Column="1" Content="Отмена" Command="{Binding CancelCommand}"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="Отмена" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=View}"/>
     </Grid>
 </Window>

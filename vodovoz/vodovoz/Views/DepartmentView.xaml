@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:vodovoz.Views"
         mc:Ignorable="d"
-        Title="DepartmentView" Height="150" Width="400">
+        Title="DepartmentView" Height="150" Width="400"
+        x:Name="View">
     <Window.Resources>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Margin" Value="4" />
@@ -38,6 +39,6 @@
             </ListView.View>
         </ListView>
         <Button Grid.Row="2" Grid.Column="0" Content="Ок" Command="{Binding OkCommand}"/>
-        <Button Grid.Row="2" Grid.Column="1" Content="Отмена" Command="{Binding CancelCommand}"/>
+        <Button Grid.Row="2" Grid.Column="1" Content="Отмена" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=View}"/>
     </Grid>
 </Window>

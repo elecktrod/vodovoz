@@ -11,8 +11,6 @@ namespace vodovoz.ViewModels
 {
     public class DepartmentViewModel : BaseViewModel
     {
-        private DepartmentView _view;
-
         private Department _department;
         public Department Department
         {
@@ -39,9 +37,6 @@ namespace vodovoz.ViewModels
 
         public DepartmentViewModel(Department department)
         {
-            _view = new DepartmentView();
-            _view.DataContext = this;
-
             OkCommand = new RelayCommand(DoOk);
             CancelCommand = new RelayCommand(DoCancel);
 
@@ -82,12 +77,8 @@ namespace vodovoz.ViewModels
 
         private void DoCancel(object obj)
         {
-            _view.Close();
+            (obj as Window).Close();
         }
 
-        public void ShowView()
-        {
-            _view.ShowDialog();
-        }
     }
 }

@@ -41,7 +41,8 @@ namespace vodovoz.ViewModels
         {
             OrderViewModel ovm = new OrderViewModel(null);
             ovm.AddOrderEvent += AddOrder;
-            ovm.ShowView();
+            OrderView oView = new OrderView { DataContext = ovm };
+            oView.ShowDialog();
         }
 
         private void DoOpenOrderView(object obj)
@@ -50,7 +51,8 @@ namespace vodovoz.ViewModels
                 return;
             OrderViewModel ovm = new OrderViewModel((Order)obj);
             ovm.UpdateOrderEvent += UpdateOrder;
-            ovm.ShowView();
+            OrderView oView = new OrderView{ DataContext = ovm };
+            oView.ShowDialog();
         }
 
         private void AddOrder(Order order)
@@ -68,7 +70,8 @@ namespace vodovoz.ViewModels
         {
             DepartmentViewModel dvm = new DepartmentViewModel(null);
             dvm.AddDepartmentEvent += AddDepartment;
-            dvm.ShowView();
+            DepartmentView dView = new DepartmentView { DataContext = dvm };
+            dView.ShowDialog();
         }
 
         private void DoOpenDepartmentView(object obj)
@@ -77,7 +80,8 @@ namespace vodovoz.ViewModels
                 return;
             DepartmentViewModel dvm = new DepartmentViewModel((Department)obj);
             dvm.UpdateDepartmentEvent += UpdateDepartment;
-            dvm.ShowView();
+            DepartmentView dView = new DepartmentView { DataContext = dvm };
+            dView.ShowDialog();
         }
 
         private void AddDepartment(Department department)
@@ -96,7 +100,8 @@ namespace vodovoz.ViewModels
         {
             WorkerViewModel wvm = new WorkerViewModel(null);
             wvm.AddWorkerEvent += AddWorker;
-            wvm.ShowView();
+            WorkerView wView = new WorkerView { DataContext = wvm };
+            wView.ShowDialog();
         }
 
         private void DoOpenWorkerView(object obj)
@@ -105,7 +110,8 @@ namespace vodovoz.ViewModels
                 return;
             WorkerViewModel wvm = new WorkerViewModel((Worker)obj);
             wvm.UpdateWorkerEvent += UpdateWorker;
-            wvm.ShowView();
+            WorkerView wView = new WorkerView { DataContext = wvm };
+            wView.ShowDialog();
         }
 
         private void AddWorker(Worker worker)
@@ -125,7 +131,6 @@ namespace vodovoz.ViewModels
         {
             Workers = new WorkersManager().GetWorkers();
             RaisePropertyChanged(nameof(Workers));
-
         }
 
         private void UpdateDepartments()

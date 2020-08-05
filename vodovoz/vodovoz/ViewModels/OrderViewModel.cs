@@ -10,8 +10,6 @@ namespace vodovoz.ViewModels
 {
     public class OrderViewModel : BaseViewModel
     {
-        private OrderView _view;
-
         private Order _order;
         public Order Order
         {
@@ -37,9 +35,6 @@ namespace vodovoz.ViewModels
 
         public OrderViewModel(Order order)
         {
-            _view = new OrderView();
-            _view.DataContext = this;
-
             OkCommand = new RelayCommand(DoOk);
             CancelCommand = new RelayCommand(DoCancel);
 
@@ -80,12 +75,7 @@ namespace vodovoz.ViewModels
 
         private void DoCancel(object obj)
         {
-            _view.Close();
-        }
-
-        public void ShowView()
-        {
-            _view.ShowDialog();
+            (obj as Window).Close();
         }
     }
 }

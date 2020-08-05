@@ -8,6 +8,7 @@
         xmlns:viewModels="clr-namespace:vodovoz.ViewModels"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
+        x:Name="View"
         Title="WorkerView" Width="400" Height="280">
     <Window.Resources>
         <ObjectDataProvider x:Key="EnumSex" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
@@ -59,6 +60,6 @@
             </ListView.View>
         </ListView>
         <Button Grid.Row="6" Grid.Column="0" Content="Ок" Command="{Binding OkCommand}"/>
-        <Button Grid.Row="6" Grid.Column="1" Content="Отмена" Command="{Binding CancelCommand}"/>
+        <Button Grid.Row="6" Grid.Column="1" Content="Отмена" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=View}"/>
     </Grid>
 </Window>
